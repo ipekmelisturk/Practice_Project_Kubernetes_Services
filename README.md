@@ -8,8 +8,6 @@ The following concepts are explored:
 - Secret
 - Volumes and Persistent Volume Claims
 
-```
-```
 
 To create a ConfigMap firstly we need to create an IBM Cloud container:
 Export your namespace:
@@ -45,8 +43,24 @@ Create a ConfigMap named myapp-config:
 ```
 kubectl create configmap myapp-config --from-literal=server-url=http://example.com --from-literal=timeout=5000
 ```
-
-
-
+Creating a DaemonSet:
+Apply daemonset.yaml to your Kubernetes cluster using the following command:
 ```
+kubectl apply -f daemonset.yaml
 ```
+Verify its status:
+```
+kubectl get daemonsets
+```
+
+Secrets:
+The following command helps create a secret named myapp-secret, providing key-value pairs for sensitive data:
+```
+kubectl create secret generic myapp-secret --from-literal=username=myuser --from-literal=password=mysecretpassword
+```
+To verify:
+```
+kubectl get secret myapp-secret
+```
+
+
