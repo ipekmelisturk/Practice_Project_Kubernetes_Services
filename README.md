@@ -9,7 +9,7 @@ The following concepts are explored:
 - Volumes and Persistent Volume Claims
 
 
-To create a ConfigMap firstly we need to create an IBM Cloud container:
+To create a **ConfigMap** firstly we need to create an IBM Cloud container:
 Export your namespace:
 ```
 export MY_NAMESPACE=sn-labs-$USERNAME 
@@ -38,12 +38,12 @@ Start the application(using port 3000):
 ```
 kubectl port-forward deployment.apps/myapp 3000:3000 
 ```
-To set up a ConfigMap to manage configuration data for the myapp application:
+To set up a **ConfigMap** to manage configuration data for the myapp application:
 Create a ConfigMap named myapp-config:
 ```
 kubectl create configmap myapp-config --from-literal=server-url=http://example.com --from-literal=timeout=5000
 ```
-Creating a DaemonSet:
+Creating a **DaemonSet**:
 Apply daemonset.yaml to your Kubernetes cluster using the following command:
 ```
 kubectl apply -f daemonset.yaml
@@ -52,8 +52,16 @@ Verify its status:
 ```
 kubectl get daemonsets
 ```
-
-Secrets:
+Kubernetes **Services**:
+Apply this configuration to your Kubernetes cluster.
+```
+kubectl apply -f service.yaml
+```
+Retrieve all the services present.
+```
+-kubectl get services
+```
+**Secrets**:
 The following command helps create a secret named myapp-secret, providing key-value pairs for sensitive data:
 ```
 kubectl create secret generic myapp-secret --from-literal=username=myuser --from-literal=password=mysecretpassword
